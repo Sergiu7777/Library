@@ -1,4 +1,6 @@
 package org.sergheimorari.library.repository;
 
-public interface UserRepository {
-}
+import org.sergheimorari.library.model.User;
+import org.springframework.data.repository.CrudRepository;
+
+public interface UserRepository extends CrudRepository<User, Long> {}
