@@ -1,5 +1,6 @@
 package org.sergheimorari.library.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +14,7 @@ import org.hibernate.type.SqlTypes;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "users")
 public class User {
 
   @Id
@@ -26,6 +28,7 @@ public class User {
 
   @NonNull private String email;
 
-  @OneToMany(mappedBy = "borrower")
+  @OneToMany(mappedBy = "borrower", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @JsonManagedReference
   private Set<Book> borrowedBooks = new HashSet<>();
 }

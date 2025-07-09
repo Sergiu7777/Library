@@ -1,5 +1,6 @@
 package org.sergheimorari.library.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -11,6 +12,7 @@ import org.hibernate.type.SqlTypes;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "books")
 public class Book {
 
   @Id
@@ -24,7 +26,8 @@ public class Book {
   private String isbn;
   private int amount;
 
-  @ManyToOne
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "user_id")
+  @JsonBackReference
   private User borrower;
 }

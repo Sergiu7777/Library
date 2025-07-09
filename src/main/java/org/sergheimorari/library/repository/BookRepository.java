@@ -6,7 +6,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 
 public interface BookRepository extends CrudRepository<Book, Long> {
-  Book getBookByIsbn(String isbn);
 
   Book getBookByIsbnLikeIgnoreCaseOrAuthorLikeIgnoreCaseOrTitleLikeIgnoreCase(
       String isbn, String author, String title);

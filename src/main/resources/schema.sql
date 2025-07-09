@@ -10,8 +10,8 @@ CREATE TABLE users
     email      VARCHAR(255) UNIQUE
 );
 
--- Create table: book
-CREATE TABLE book
+-- Create table: books
+CREATE TABLE books
 (
     id      BIGINT PRIMARY KEY AUTO_INCREMENT,
     title   VARCHAR(255),
